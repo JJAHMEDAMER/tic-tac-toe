@@ -10,4 +10,23 @@ class Tic_Tac_Toe:
                 "\n___________\n"\
                 f" {tiles[7]} | {tiles[8]} | {tiles[9]} ")
 
+class Players:
+    def __init__(self, mark):
+        self.mark = mark
+    
+    def move(self,spot):
+        if tiles[spot] == "X" or tiles[spot] == "O":
+            print("Invalid Move")
+        else:
+            tiles[spot] = self.mark
+        Tic_Tac_Toe()
+
+
 Tic_Tac_Toe()
+
+player1 = Players("X")
+player2 = Players("O")
+
+while True:         
+    player1.move(int(input("\nPlayer 1: ")))
+    player2.move(int(input("\nPlater 2: ")))
