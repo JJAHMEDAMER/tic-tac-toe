@@ -39,23 +39,29 @@ class Players:
                                     tiles['3'] == self.mark and tiles['5'] == self.mark and tiles['7'] == self.mark:
             return "Winner"
         
-                 
-        
 
 Tic_Tac_Toe()
 
 player1 = Players("X")
 player2 = Players("O")
 
-while True:
+turns = 0
+while turns < 9:   
     player1.move() 
-
+    turns += 1
     if player1.winner():
         print(f"Player {player1.mark} is the winner")
-        
+        break
+    
+    if turns == 9:
+        print("Draw")
+        break 
+    
     player2.move() 
-     
+    turns += 1
     if player2.winner():
-        print(f"Player {player1.mark} is the winner")   
+        print(f"Player {player2.mark} is the winner")
+        break  
+    
 
 
