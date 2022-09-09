@@ -9,6 +9,8 @@ class Tic_Tac_Toe:
                 f" {tiles['4']} | {tiles['5']} | {tiles['6']} "\
                 "\n___________\n"\
                 f" {tiles['7']} | {tiles['8']} | {tiles['9']} \n")
+        
+        
 
 class Players:
     def __init__(self, mark):
@@ -24,7 +26,21 @@ class Players:
             else:
                 break
         tiles[spot] = self.mark
-        Tic_Tac_Toe()            
+        Tic_Tac_Toe()
+        
+    def winner(self):
+        if tiles['1'] == self.mark and tiles['2'] == self.mark and tiles['3'] == self.mark or\
+            tiles['4'] == self.mark and tiles['5'] == self.mark and tiles['6'] == self.mark or\
+                tiles['7'] == self.mark and tiles['8'] == self.mark and tiles['9'] == self.mark or\
+                    tiles['1'] == self.mark and tiles['4'] == self.mark and tiles['7'] == self.mark or\
+                        tiles['2'] == self.mark and tiles['5'] == self.mark and tiles['8'] == self.mark or\
+                            tiles['3'] == self.mark and tiles['6'] == self.mark and tiles['9'] == self.mark or\
+                                tiles['1'] == self.mark and tiles['5'] == self.mark and tiles['9'] == self.mark or\
+                                    tiles['3'] == self.mark and tiles['5'] == self.mark and tiles['7'] == self.mark:
+            return "Winner"
+        
+                 
+        
 
 Tic_Tac_Toe()
 
@@ -32,8 +48,14 @@ player1 = Players("X")
 player2 = Players("O")
 
 while True:
+    player1.move() 
 
-    player1.move()    
-    
-    player2.move()     
-       
+    if player1.winner():
+        print(f"Player {player1.mark} is the winner")
+        
+    player2.move() 
+     
+    if player2.winner():
+        print(f"Player {player1.mark} is the winner")   
+
+
