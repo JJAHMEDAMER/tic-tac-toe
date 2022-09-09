@@ -14,19 +14,26 @@ class Players:
     def __init__(self, mark):
         self.mark = mark
     
-    def move(self,spot):
-        if tiles[spot] == "X" or tiles[spot] == "O":
-            print("Invalid Move\n")
-        else:
-            tiles[spot] = self.mark
-        Tic_Tac_Toe()
-
+    def move(self):
+        while True:
+            spot = input(f"Player {self.mark}: ") 
+            if int(spot) > 9:
+                print("Out Of Range\n")
+            elif (tiles[spot] == "X" or tiles[spot] == "O"): 
+                print("Invalid Move\n")
+            else:
+                break
+        tiles[spot] = self.mark
+        Tic_Tac_Toe()            
 
 Tic_Tac_Toe()
 
 player1 = Players("X")
 player2 = Players("O")
 
-while True:         
-    player1.move(input("Player 1: "))
-    player2.move(input("Plater 2: "))
+while True:
+
+    player1.move()    
+    
+    player2.move()     
+       
